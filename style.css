@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.checkbox {
+    background-color: #e25a5a;
+    padding: 20px;
+    border-radius: 8px;
+
+}
+
+#ano, #sexo {
+    margin-bottom: 15px;
+}
+
+.radio-group {
+    margin-top: 5px;
+    
+    gap: 15px;
+}
+
+input[type="number"] {
+    padding: 8px;
+    width: 100px;
+    background-color: cadetblue;
+    border: none;
+    border-radius: 4px;
+}
+
+input[type="button"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #45a049;
+}
+
+#res {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9f7ef;
+    border-radius: 4px;
+    display: none; /* Só aparece quando houver resultado */
+}

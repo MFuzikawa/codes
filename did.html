@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Idade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+    <div class="checkbox">
+        <div id="ano">
+            <label for="anonas">Ano de Nascimento:</label>
+            <input type="number" name="anonas" id="anonas" min="1900" max="2024">
+        </div>
+        <div id="sexo">
+            <p>Sexo:</p>
+            <div class="radio-group">
+                <input type="radio" name="sexo" id="masc" value="masculino" checked>
+                <label for="masc">Masculino</label>
+                
+                <input type="radio" name="sexo" id="femin" value="feminino">
+                <label for="femin">Feminino</label>
+            </div>
+        </div>
+        <input type="button" value="Verificar" id="verify">
+    </div>
+    <div id="res"></div>
+
+    <script>
+        document.getElementById('verify').addEventListener('click', function(){
+            const anonascimento = parseInt(document.getElementById('anonas').value);
+            const sexoSelecionado = document.querySelector('input[name="sexo"]:checked');
+            
+            // Verifica se o ano é válido
+            if (!anonascimento || anonascimento < 1900 || anonascimento > new Date().getFullYear()) {
+                document.getElementById('res').innerHTML = 'Por favor, escreva um ano válido!';
+                return;
+            }
+            
+            // Verifica se algum sexo foi selecionado
+            if (!sexoSelecionado) {
+                document.getElementById('res').innerHTML = 'Por favor, selecione um sexo!';
+                return;
+            }
+            
+            const sexo = sexoSelecionado.value;
+            const idade = new Date().getFullYear() - anonascimento;
+            const genero = sexo === 'masculino' ? 'homem' : 'mulher';
+            
+            document.getElementById('res').innerHTML = `Detectamos ${genero} com ${idade} anos.`;
+        });
+    </script>
+</body>
+</html>
